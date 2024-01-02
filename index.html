@@ -31,7 +31,7 @@
 </style>
 <body>
     
-    <h1 id="heding"><i>Student form</i></h1>
+    <h1 id="heding">Student form</h1>
 
 <form id="Student_form">
   <div class="col-md-4">    
@@ -48,7 +48,7 @@
     <button id="btn" type="button" class="btn btn-outline-success" onclick="Success()">Success</button>
 </div>
 
-<div id="alr" class="alert alert-success" role="alert" >
+<div id="alr" class="alert alert-success" role="alert" style="display: none;">
     <p id="massege"></p>
   </div>
 </form>
@@ -76,7 +76,13 @@
     };
 
      let massege = `my name is ${name} my email Id is ${email}`;
-     document.getElementById('massege').innerText=massege  
+     document.getElementById('massege').innerText=massege
+     document.getElementById('alr').style.display = 'block';
+
+     document.getElementById("name").value = '';
+     document.getElementById("email").value = '';
+
+     
     };
 </script>
 </html>
