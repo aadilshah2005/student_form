@@ -4,55 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>syudent_form</title>
+    <title>student_form</title>
 </head>
 <style>
-    #heding{
-        margin-left: 40%;
-    }
-    #Student_form{
-        margin-left: 35%;
-    }
-    .col-md-4{
-        margin-top: 50px;
-    }
-    #btn{
-        margin-left: 34%;
-    }
+     
     label::after{
         content: "*";
         color: red;
     }
-    
-    #alr{
-        margin-top: 30px;
-        width: 34%;
+    *{
+        margin-top: 3%;
     }
+
 </style>
 <body>
-    
-    <h1 id="heding">Student form</h1>
+    <h1 style="text-align: center;">Student form</h1>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="container">
+                <div class="col-mb-3">
+                    <label for="fname" class="form-labal">Name:</label>
+                 <input type="text" id="name" class="form-control" placeholder="name">
+                </div>
+                <div class="col-mb-3">
+                    <label for="Course" class="form-labal">Course Name:</label>
+                   <input type="text" id="Course" class="form-control" placeholder="Course Name">
+                </div>
+                
+                <div class="col-mb-3">
+                    <label for="femail" class="form-labal">Email:</label>
+                   <input type="text" id="email" class="form-control" placeholder="email">
+                </div>
+                <div class="col-mb-3">
+                    <label for="address" class="form-labal">address:</label>
+                   <input type="text" id="address" class="form-control" placeholder="address">
+                </div>
+                <div class="col-mb-3">
+                    <button id="btn" type="button" class="btn btn-outline-success" onclick="Success()">Success</button>
+                </div>
+                <div class="col-mb-3">
+                    <div id="alr" class="alert alert-success" role="alert" style="display: none;">
+                        <p id="massege"></p>
+                      </div>
 
-<form id="Student_form">
-  <div class="col-md-4">    
-  <label for="fname" class="form-labal">Name:</label>
-  <input type="text" id="name" class="form-control" placeholder="name">
-</div>
-
-<div class="col-md-4">
-    <label for="femail" class="form-labal">Email:</label>
-  <input type="text" id="email" class="form-control" placeholder="email">
-</div>
-
-<div class="col-md-4">  
-    <button id="btn" type="button" class="btn btn-outline-success" onclick="Success()">Success</button>
-</div>
-
-<div id="alr" class="alert alert-success" role="alert" style="display: none;">
-    <p id="massege"></p>
-  </div>
-</form>
-  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>  
 </body>
 <script>
 
@@ -61,26 +61,34 @@
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     let name = document.getElementById("name").value;
+    let Course  = document.getElementById("Course").value;
     let email = document.getElementById("email").value;
+    let address = document.getElementById("address").value;
 
     if (name == null || name == '') {
         alert('please proper fill name');return;   
     };
-
+    if (Course == null || Course == '') {
+        alert('please proper fill name');return;   
+    };
     if (email == null || email == '') {
         alert('please proper fill email'); return;
     };
-
+    if (address == null || address == '') {
+        alert('please proper fill email'); return;
+    };
     if (!validRegex.test(email)) {
     alert('please valid email id');return;  
     };
 
-     let massege = `my name is ${name} my email Id is ${email}`;
+     let massege = `my name is ${name} my Course ${Course} my email Id is ${email} I come from ${address}`;
      document.getElementById('massege').innerText=massege
      document.getElementById('alr').style.display = 'block';
 
      document.getElementById("name").value = '';
+     document.getElementById("Course").value = '';
      document.getElementById("email").value = '';
+     document.getElementById("address").value = '';
 
      
     };
